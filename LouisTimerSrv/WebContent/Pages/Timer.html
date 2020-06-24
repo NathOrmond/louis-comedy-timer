@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Timer</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">Factory BJJ | Clock</h1>
+	</div>
+	<br>
+	
+	<div class="container">
+		<form action="">
+  			<label for="rounds">Rounds</label>
+  			<input type="text" id="rounds" name="rounds"><br>
+  			<label for="work_time">Work Time</label>
+  			<input type="text" id="work_time" name="work_time"><br>
+ 	 		<label for="rest_time">Rest Time</label>
+  			<input type="text" id="rest_time" name="rest_time"><br>
+  			<input type="submit" value="Set">
+		</form>
+	</div>
+	
+	<br>
+	<div class="container">
+  		<h2>Round 0</h2>
+		<h1>00:00</h1>
+		<br>
+		<button type="button" id="start_button" onclick="alert('Start!')">START</button>
+		<button type="button" id="stop_button" onclick="alert('Stop!')">STOP</button>
+	</div>
+	
+</body>
+</html>
