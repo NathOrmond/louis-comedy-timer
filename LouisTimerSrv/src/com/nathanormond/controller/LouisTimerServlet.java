@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LouisTimerServlet
  */
-@WebServlet("/LouisTimerServlet")
+@WebServlet("/timer")
 public class LouisTimerServlet extends AbstractHttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,21 +22,28 @@ public class LouisTimerServlet extends AbstractHttpServlet {
         super();
     }
     
-    /**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	request.setAttribute("data", false);
 		createGETRequestDispatcher(request).forward(request, response);	// Forward the request to the view
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("data", true);
+		// TODO Add data from URL ? || Data fwds straight through
+		// request.getParameter("smth");
+		createPOSTRequestDispatcher(request).forward(request, response);
 	}
 
 	@Override
 	protected String getPOSTPageURL() {
-		return null;
+		return "pages/timer.html";
 	}
 
 	@Override
 	protected String getGETPageURL() {
-		return "Pages/Timer.html";
+		return "pages/timer.html";
 	}
 
 	@Override

@@ -16,24 +16,21 @@ public abstract class AbstractHttpServlet extends HttpServlet {
 		return createRequestDispatcher(request, getPOSTPageURL());
 	}
 	
-	protected abstract String getPOSTPageURL();
-
 	public RequestDispatcher createGETRequestDispatcher(HttpServletRequest request) { 
 		return createRequestDispatcher(request, getGETPageURL());
 	}
-	
-	protected abstract String getGETPageURL();
 
 	public RequestDispatcher createPUTRequestDispatcher(HttpServletRequest request) { 
 		return createRequestDispatcher(request, getPUTPageURL());
 	}
-	
-	protected abstract String getPUTPageURL();
 
 	public RequestDispatcher createDELETERequestDispatcher(HttpServletRequest request) { 
 		return createRequestDispatcher(request, getDELETEPageURL());
 	}
 
+	protected abstract String getPOSTPageURL();
+	protected abstract String getGETPageURL();
+	protected abstract String getPUTPageURL();
 	protected abstract String getDELETEPageURL();
 
 }
