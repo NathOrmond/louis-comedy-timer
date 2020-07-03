@@ -75,6 +75,7 @@ function decrementTime(){
 	refreshTimeOnScreen(min,sec);
 	if( ( do_work && ((index % work_time) == 0) && (index != 0)) || (rest_index != 0)){ 
 		if(rest_index == 0){
+			playRest();
 			round_count += 1;
 			refreshRoundsOnScreen(round_count, rounds);
 		}
@@ -93,6 +94,16 @@ function decrementTime(){
 		}
 		
 	} else { 
+		
+		//random checks keep going/ youcandoit / nicework
+		if(Math.floor(Math.random() * 100) + Math.floor(Math.random() * 20) == 10){ 
+			playKeepGoing();
+		} else if(Math.floor(Math.random() * 100) % Math.floor(Math.random() * 75) == 5){ 
+			playYouCanDoIt();
+		}  else	if(Math.floor(Math.random() * 100) * Math.floor(Math.random() * 100) == 7){ 
+			playWannaRoll();
+		}  
+		
 		changeBackground("#FF7F50");
 		index += 1;
 		do_work = true;
@@ -100,6 +111,7 @@ function decrementTime(){
 	
 	if(sec == 0){ 
 		if(min == 0){ 
+			playNiceWork();
 			clearInterval(refresh_interval_valid);
 		} else {
 			min = min - 1;
@@ -128,6 +140,8 @@ function refreshRoundsOnScreen(cnt, rds){
 }
 
 function onStart(){ 
+	
+	playRollingNow();
 	
 	if(first_start){ 
 		first_start = false;
@@ -173,4 +187,38 @@ function onSetValues(){
 function calculateInitialTimes(){ 	
 	max = Math.floor(((work_time + rest_time) * rounds) / 60);
 	initialSec = ((work_time + rest_time) * rounds) % 60;
+}
+
+/*****************************************************
+ * AUDIO
+ */
+
+function playKeepGoing(){
+	var audio = new Audio("./resources/keepgoing.mp3");
+	audio.play();
+}
+
+function playNiceWork(){ 
+	var audio = new Audio("./resources/nicework.mp3");
+	audio.play();
+}
+
+function playRest(){ 
+	var audio = new Audio("./resources/rest.mp3");
+	audio.play();
+}
+
+function playRollingNow(){ 
+	var audio = new Audio("./resources/rollingnow.mp3");
+	audio.play();
+}
+
+function playWannaRoll(){ 
+	var audio = new Audio("./resources/wannaroll1.mp3");
+	audio.play();
+}
+
+function playYouCanDoIt(){ 
+	var audio = new Audio("./resources/youcandoit.mp3");
+	audio.play();
 }
