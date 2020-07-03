@@ -82,13 +82,10 @@ function decrementTime(){
 		rest_index += 1;
 		index += 1;
 		changeBackground("#00FF00");
-		
-		console.log("INDEX :" + index );
-		console.log("REST_INDEX:" + rest_index);
-		console.log("REST_TIME:" + rest_time);
-		
+				
 		if(rest_index >= rest_time){ 
 			rest_index = 0;
+			index = 0;
 			console.log("RESET REST INDEX");
 			do_work = false;
 		}
