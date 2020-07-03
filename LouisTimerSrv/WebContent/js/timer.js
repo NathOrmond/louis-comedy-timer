@@ -17,10 +17,15 @@ var refresh_interval_valid;
 var do_work = false;
 var started = false;
 
+var first_start = true;
+
 /*****************************************************
  * START SCRIPT
  */
+changeBackground("#F0F8FF");
+refreshRoundsOnScreen(round_count, rounds);
 refreshTimeOnScreen(min,sec);
+
 
 /*****************************************************
  * DOC LISTENERS
@@ -88,7 +93,7 @@ function decrementTime(){
 		}
 		
 	} else { 
-		changeBackground("#FF0000");
+		changeBackground("#FF7F50");
 		index += 1;
 		do_work = true;
 	}
@@ -119,10 +124,17 @@ function refreshTimeOnScreen(mm,ss){
 }
 
 function refreshRoundsOnScreen(cnt, rds){ 
-	document.getElementById("round_num").innerHTML = cnt + "/" + rds; 
+	document.getElementById("round_num").innerHTML = "Round: " + cnt + "/" + rds; 
 }
 
 function onStart(){ 
+	
+	if(first_start){ 
+		first_start = false;
+		round_count += 1;
+		refreshRoundsOnScreen(round_count, rounds);
+	}
+	
 	started = true;
 	do_work = true;
 	refresh_interval_valid = setInterval(decrementTime , REFRESH_RATE);
@@ -132,10 +144,12 @@ function onStop(){
 	started = false;
 	do_work = false;
 	clearInterval(refresh_interval_valid);
+	changeBackground("#F0F8FF");
 }
 
 function onReset(){ 
 	onStop();
+	first_start = true;
 	min = max;
 	sec = initialSec;
 	index = 0;

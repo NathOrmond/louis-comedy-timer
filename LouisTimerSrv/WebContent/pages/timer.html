@@ -3,48 +3,70 @@
 <head>
 	<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
 	<title>Timer</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<!-- jQuery library -->
-	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
-	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<!-- JQUERY -->
+	<script	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<!-- CSS Styling -->
+	<link rel="stylesheet" href="./css/theme.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+	<link rel="stylesheet" 	href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+	<!-- JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
 </head>
 <body>
-	<div class="container">
-		<h1 class="text-center">King Louis Stopwatch</h1>
+	<div class="d-flex justify-content-center align-items-center">
+		<h1 class="text-center">KING-LOU Stopwatch</h1>
 	</div>
 	<br>
 	
-	<div class="container">
-		
-  			<label for="rounds">Rounds        : </label>
-  			<input type="number" id="rounds" name="rounds" min="1">
-  			<br>
-  			<label for="rest_time">Rest Time (s) : </label>
+	<div class="d-flex justify-content-center align-items-center">
+		<div class="form-group">
+  			<label for="rounds">Rounds:</label>
+  			<input type="number" id="rounds" name="rounds" min="1" >
+  			
+  			<label for="rest_time">Rest Time (s):</label>
   			<input type="number" id="rest_time" name="rest_time" min="1">
-  			<br>
-  			<label for="work_time">Work Time (s) : </label>
+  			
+  			<label for="work_time">Work Time (s):</label>
   			<input type="number" id="work_time" name="work_time" min="1">
+  			
   			<br>  			
-  			<button id="set_values_button" type="button">SET</button>
-		
+  			<button id="set_values_button" type="button"  class="btn btn-primary">SET</button>
+		</div>
 	</div>
 	
 	<br>
 	
+	
 	<div class="container">
-  		<h2>Round :</h2><h2 id="round_num">0</h2>
-  		<br>
-		<h2 id="CLOCK"></h2>
-		<button type="button" id="start_button">START</button>
-		<button type="button" id="stop_button">STOP</button>
-		<button type="button" id="reset_button">RESET</button>
+  		<h2 id="round_num" style="font-size: 50px"></h2>
+  	</div>
+  		
+  		
+  	<div class="d-flex justify-content-center align-items-center">
+		<h2 id="CLOCK" style="font-size: 250px"></h2>
+	</div>
+	
+	<div class="d-flex justify-content-center align-items-center">
+		<button type="button" id="start_button" class="btn btn-primary">START</button>
+		<button type="button" id="stop_button" class="btn btn-primary">STOP</button>
+		<button type="button" id="reset_button" class="btn btn-primary">RESET</button>
 	</div>
 	
 	<!-- Own ECMAScripts -->
 	<script src="./js/timer.js"></script>
 	
 </body>
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark pt-4">
+
+</footer>
+<!-- Footer -->
 </html>
