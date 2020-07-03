@@ -13,23 +13,27 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="text-center">Factory BJJ | Clock</h1>
+		<h1 class="text-center">King Louis Stopwatch</h1>
 	</div>
 	<br>
 	
 	<div class="container">
-		<form action="">
-  			<label for="rounds">Rounds</label>
-  			<input type="text" id="rounds" name="rounds"><br>
-  			<label for="work_time">Work Time (seconds)</label>
-  			<input type="text" id="work_time" name="work_time"><br>
- 	 		<label for="rest_time">Rest Time (seconds)</label>
-  			<input type="text" id="rest_time" name="rest_time"><br>
-  			<button type="button" id="set_values_button">RESET</button>
-		</form>
+		
+  			<label for="rounds">Rounds        : </label>
+  			<input type="number" id="rounds" name="rounds" min="1">
+  			<br>
+  			<label for="rest_time">Rest Time (s) : </label>
+  			<input type="number" id="rest_time" name="rest_time" min="1">
+  			<br>
+  			<label for="work_time">Work Time (s) : </label>
+  			<input type="number" id="work_time" name="work_time" min="1">
+  			<br>  			
+  			<button id="set_values_button" type="button">SET</button>
+		
 	</div>
 	
 	<br>
+	
 	<div class="container">
   		<h2>Round :</h2><h2 id="round_num">0</h2>
   		<br>
