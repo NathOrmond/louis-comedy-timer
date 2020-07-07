@@ -13,6 +13,8 @@ var work_time = 45;
 var index = 0;
 var rest_index = 0;
 
+var first_round = true;
+
 var refresh_interval_valid;	
 var do_work = false;
 var started = false;
@@ -74,23 +76,38 @@ function setMinutes(time){
 function decrementTime(){
 	refreshTimeOnScreen(min,sec);
 	if( ( do_work && ((index % work_time) == 0) && (index != 0)) || (rest_index != 0)){ 
+		
 		if(rest_index == 0){
 			playRest();
 			round_count += 1;
 			refreshRoundsOnScreen(round_count, rounds);
 		}
+		
 		rest_index += 1;
 		index += 1;
 		changeBackground("#00FF00");
+		
+		if((rest_time - rest_index) == 2){ 
+			play321Go();
+		}
 				
 		if(rest_index >= rest_time){ 
 			rest_index = 0;
 			index = 0;
 			console.log("RESET REST INDEX");
 			do_work = false;
+			first_round = false;
 		}
 		
 	} else { 
+		
+		if(index == 0 && !first_round){ 
+			playBackToWork();
+		}
+		
+		if((work_time - index) == 10){ 
+			playTenSeconds();
+		}
 		
 		//random checks keep going/ youcandoit / nicework
 		if(Math.floor(Math.random() * 100) + Math.floor(Math.random() * 20) == 10){ 
@@ -161,6 +178,7 @@ function onStop(){
 function onReset(){ 
 	onStop();
 	first_start = true;
+	first_round = true;
 	min = max;
 	sec = initialSec;
 	index = 0;
@@ -219,3 +237,21 @@ function playYouCanDoIt(){
 	var audio = new Audio("./resources/youcandoit.mp3");
 	audio.play();
 }
+
+function playTenSeconds(){ 
+	var audio1 = new Audio("./resources/LASTTEN.ogg");
+	var audio2 = new Audio("./resources/10STICK.mp3");
+	audio1.play();
+	audio2.play();
+}
+
+function play321Go(){ 
+	var audio = new Audio("./resources/321GO.mp3");
+	audio.play();
+}
+
+function playBackToWork(){ 
+	var audio = new Audio("./resources/BACKTOWORK.ogg");
+	audio.play();
+}
+
